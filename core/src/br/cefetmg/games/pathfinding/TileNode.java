@@ -10,69 +10,72 @@ import com.badlogic.gdx.utils.Array;
  */
 public class TileNode {
 
-    private final Array<Connection<TileNode>> connections = new Array<>();
-    private final int index;
-    private boolean isObstacle;
-    private boolean isWater;
-    private Vector2 position;
-    
-    public TileNode() {
-        index = Incrementer.nextIndex();
-        position = Vector2.Zero;
-    }
-    
-    public int getIndex() {
-        return index;
-    }
+	private final Array<Connection<TileNode>> connections = new Array<>();
+	private final int index;
+	private boolean isObstacle;
+	private boolean isWater;
+	private Vector2 position;
 
-    /**
-     * @return the isObstacle
-     */
-    public boolean isObstacle() {
-        return isObstacle;
-    }
+	public TileNode() {
+		index = Incrementer.nextIndex();
+		position = Vector2.Zero;
+	}
 
-    /**
-     * @param isObstacle the isObstacle to set
-     */
-    public void setIsObstacle(boolean isObstacle) {
-        this.isObstacle = isObstacle;
-    }
+	public int getIndex() {
+		return index;
+	}
 
-    /**
-     * @return the position
-     */
-    public Vector2 getPosition() {
-        return position;
-    }
+	/**
+	 * @return the isObstacle
+	 */
+	public boolean isObstacle() {
+		return isObstacle;
+	}
 
-    /**
-     * @param position the position to set
-     */
-    public void setPosition(Vector2 position) {
-        this.position = position;
-    }
+	/**
+	 * @param isObstacle
+	 *            the isObstacle to set
+	 */
+	public void setIsObstacle(boolean isObstacle) {
+		this.isObstacle = isObstacle;
+	}
 
-    public Array<Connection<TileNode>> getConnections() {
-        return connections;
-    }
+	/**
+	 * @return the position
+	 */
+	public Vector2 getPosition() {
+		return position;
+	}
 
-    public boolean isWater() {
-        return isWater;
-    }
-    
-    public void setIsWater(boolean water) {
-        isWater = water;
-    }
-    
-    private static class Incrementer {
-        private static int id = 0;
-        public static int nextIndex() {
-            return id++;
-        }
-    }
-    
-    public void createConnection(TileNode to, float cost) {
-        connections.add(new TileConnection(this, to, cost));
-    }
+	/**
+	 * @param position
+	 *            the position to set
+	 */
+	public void setPosition(Vector2 position) {
+		this.position = position;
+	}
+
+	public Array<Connection<TileNode>> getConnections() {
+		return connections;
+	}
+
+	public boolean isWater() {
+		return isWater;
+	}
+
+	public void setIsWater(boolean water) {
+		isWater = water;
+	}
+
+	private static class Incrementer {
+		private static int id = 0;
+
+		public static int nextIndex() {
+			return id++;
+		}
+	}
+
+	public void createConnection(TileNode to, float cost) {
+		connections.add(new TileConnection(this, to, cost));
+	}
 }
