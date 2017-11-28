@@ -23,8 +23,8 @@ import java.util.HashMap;
 public class OrientedCharacterSprite extends Sprite {
 
     private static final float FRAME_DURATION = 0.2f;
-    private final HashMap<Facing, Animation> animations;
-    private Animation currentAnimation;
+    private final HashMap<Facing, Animation<TextureRegion>> animations;
+    private Animation<TextureRegion> currentAnimation;
     private float animationTime;
     private boolean moving;
 
@@ -46,7 +46,7 @@ public class OrientedCharacterSprite extends Sprite {
         for (int j = 0; j < Facing.values().length; j++) {
             // quadros: 0 -> parado, 1 -> pé direito, 2 -> pé esquerdo
             // sequência de andando: 0, 1, 0, 2
-            animations.put(Facing.values()[j], new Animation(FRAME_DURATION,
+            animations.put(Facing.values()[j], new Animation<TextureRegion>(FRAME_DURATION,
                     frames[0][j],
                     frames[1][j],
                     frames[0][j],
@@ -93,7 +93,7 @@ public class OrientedCharacterSprite extends Sprite {
      * @see Facing
      */
     public void setFacing(Facing orientation) {
-        Animation newAnimation = animations.get(orientation);
+        Animation<TextureRegion> newAnimation = animations.get(orientation);
         if (currentAnimation != newAnimation) {
             currentAnimation = newAnimation;
             animationTime = 0;

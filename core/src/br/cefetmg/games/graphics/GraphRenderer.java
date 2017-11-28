@@ -4,7 +4,6 @@ import br.cefetmg.games.pathfinding.TileGraph;
 import br.cefetmg.games.pathfinding.TileNode;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ai.pfa.Connection;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
